@@ -1,10 +1,10 @@
 from app import app
 from flask import render_template
 
-@app.route('/', defaults={"nome":"home"})
-@app.route('/index', defaults={"nome":"usuário"})
-@app.route('/index/<nome>')
+@app.route('/')
+@app.route('/index')
 def index(nome):
+    nome = "Italo de Jesus Souza"
     return render_template('index.html', nome=nome)
 
 @app.route('/contato')
