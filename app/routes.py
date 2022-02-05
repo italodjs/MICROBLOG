@@ -13,3 +13,7 @@ def contato():
     Telefone = '(71) 9 8833-3504'
     Cidade = 'Salvador.'
     return render_template('contato.html', email = Email, telefone = Telefone, cidade = Cidade)
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
