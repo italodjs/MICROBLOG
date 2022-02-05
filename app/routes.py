@@ -17,3 +17,9 @@ def contato():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/autenticar', methods=['GET'])
+def autenticar():
+    usuario = request.args.get('usuario')
+    senha = request.args.get('senha')
+    return "usuario {}, senha {}".format(usuario, senha)
