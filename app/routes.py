@@ -7,7 +7,7 @@ import microblog
 
 #=======================================BANCO DE DADOS===============================
 
-conn = sqlite3.connect("microblog.db")
+conn = sqlite3.connect("C:\Users\italo\OneDrive\PYTHON\PROJETOS\TESTES\MICROBLOG\microblog.db")
 conn.row_factory = lambda cursor, row:row[0]
 cursor = conn.cursor()
 #Gab = cursor.execute('SELECT Gabinete from Cadastro').fetchall()
