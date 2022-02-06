@@ -41,3 +41,5 @@ def autenticar():
     senhas = cursor.execute('SELECT Senha from cadastro').fetchall()
     if usuario == nome and senha == senhas:
         return "usuario {}, senha {}, {} e {}".format(usuario, senha, nome, senhas)
+    else:
+        return "Usuario e senha errado!"
