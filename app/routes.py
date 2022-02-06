@@ -37,5 +37,7 @@ def login():
 def autenticar():
     usuario = request.args.get('usuario')
     senha = request.args.get('senha')
-    Gab = cursor.execute('SELECT Nome from cadastro').fetchall()
-    return "usuario {}, senha {}, {}".format(usuario, senha, Gab)
+    nome = cursor.execute('SELECT Nome from cadastro').fetchall()
+    senhas = cursor.execute('SELECT Senha from cadastro').fetchall()
+    if usuario == nome and senha == senhas:
+        return "usuario {}, senha {}, {} e {}".format(usuario, senha, nome, senhas)
