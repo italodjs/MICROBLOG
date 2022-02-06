@@ -1,6 +1,20 @@
+import sqlite3
 from app import app
 from flask import render_template
 from flask import request
+import microblog
+
+
+#=======================================BANCO DE DADOS===============================
+
+conn = sqlite3.connect("microblog.db")
+conn.row_factory = lambda cursor, row:row[0]
+cursor = conn.cursor()
+#Gab = cursor.execute('SELECT Gabinete from Cadastro').fetchall()
+
+
+
+###########################################################################################
 
 @app.route('/', defaults={"nome":"home"})
 @app.route('/index', defaults={"nome":"usuário"})
@@ -23,4 +37,5 @@ def login():
 def autenticar():
     usuario = request.args.get('usuario')
     senha = request.args.get('senha')
-    return "usuario {}, senha {}".format(usuario, senha)
+    Gab = cursor.execute('SELECT Nome from cadastro').fetchall()
+    return "usuario {}, senha {}, {}".format(usuario, senha, Gab)
